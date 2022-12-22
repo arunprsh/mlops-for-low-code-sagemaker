@@ -6,22 +6,23 @@ import os
 
 
 if __name__ == '__main__':
-    y_pred_path = "/opt/ml/processing/input/predictions/x_test.csv.out"
+    y_pred_path = '/opt/ml/processing/input/predictions/holdout.csv.out'
     y_pred = pd.read_csv(y_pred_path, header=None)
-    y_true_path = "/opt/ml/processing/input/true_labels/y_test.csv"
+    y_true_path = '/opt/ml/processing/input/true_labels/true_labels.csv'
     y_true = pd.read_csv(y_true_path, header=None)
     
     report_dict = {
-        "classification_metrics": {
-            "weighted_f1": {
-                "value": f1_score(y_true, y_pred, average="weighted"),
-                "standard_deviation": "NaN",
+        'classification_metrics': {
+            'weighted_f1': {
+                'value': f1_score(y_true, y_pred, average='weighted'),
+                'standard_deviation': 'NaN',
             },
         },
     }
     
-    output_dir = "/opt/ml/processing/evaluation"
+    output_dir = '/opt/ml/processing/evaluation'
     pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
-    evaluation_path = os.path.join(output_dir, "evaluation_metrics.json")
-    with open(evaluation_path, "w") as f:
+    evaluation_path = os.path.join(output_dir, 'evaluation_metrics.json')
+    
+    with open(evaluation_path, 'w') as f:
         f.write(json.dumps(report_dict))
