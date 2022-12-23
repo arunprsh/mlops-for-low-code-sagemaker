@@ -1,6 +1,31 @@
 ---
-data_wrangler_processing_step:
-  instance_type: 'ml.m5.xlarge'
-  instance_count: 2
+processing_step:
+    bucket: 'sagemaker-us-east-1-119174016168'
+    input_name: 'loans.csv'
+    input_folder: '01-dw-input'
+    output_folder: '01-dw-output'
+    metadata_folder: '01-dw-metadata'
+    node_id: '47d300b9-fca2-4799-a944-efbbddd827de'
+    instance_type: 'ml.m5.xlarge'
+    instance_count: 2
+    flow_file_name: 'loans.flow'
+    container_uri: '663277389841.dkr.ecr.us-east-1.amazonaws.com/sagemaker-data-wrangler-container:1.31.0'
+    refit: true
+    ebs_volume_size: 50
+    output_content_type: 'CSV'
 automl_step:
-  target_column: 'loan_status'
+    target_column: 'loan_status'
+model_creation_step:
+    foo: bar
+batch_transform_step:
+    instance_type: 'ml.m5.xlarge'
+    instance_count: 1
+evaluation_step:
+    instance_type: 'ml.m5.xlarge'
+    instance_count: 1
+conditional_step:
+    foo: bar
+register_step:
+    model_approval_status: 'Approved'
+    model_package_group_name: 'LowCodePipelineModels'
+    model_registration_metric_threshold: 0.75
