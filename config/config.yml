@@ -6,7 +6,7 @@ processing_step:
     output_folder: '01-dw-output'
     metadata_folder: '01-dw-metadata'
     node_id: '47d300b9-fca2-4799-a944-efbbddd827de'
-    instance_type: 'ml.m5.xlarge'
+    instance_type: 'ml.m5.4xlarge'
     instance_count: 2
     flow_file_name: 'loans.flow'
     container_uri: '663277389841.dkr.ecr.us-east-1.amazonaws.com/sagemaker-data-wrangler-container:1.31.0'
@@ -14,9 +14,11 @@ processing_step:
     ebs_volume_size: 50
     output_content_type: 'CSV'
 automl_step:
-    target_column: 'loan_status'
+    target_name: 'loan_status'
+    input_content_type: 'text/csv;header=present'
 model_creation_step:
-    foo: bar
+    instance_type: 'ml.m5.xlarge'
+    flow_tar_name: 'loans.tar.gz'
 batch_transform_step:
     instance_type: 'ml.m5.xlarge'
     instance_count: 1
