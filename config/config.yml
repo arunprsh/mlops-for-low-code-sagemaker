@@ -22,11 +22,11 @@ model_creation_step:
 batch_transform_step:
     instance_type: 'ml.m5.xlarge'
     instance_count: 1
+    holdout_file_name: 'holdout.csv'
+    true_labels_file_name: 'true_labels.csv'
 evaluation_step:
     instance_type: 'ml.m5.xlarge'
     instance_count: 1
-conditional_step:
-    foo: bar
 register_step:
     model_approval_status: 'Approved'
     model_package_group_name: 'LowCodePipelineModels'
