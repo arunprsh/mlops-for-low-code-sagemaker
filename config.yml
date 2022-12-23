@@ -1,0 +1,6 @@
+---
+data_wrangler_processing_step:
+  instance_type: 'ml.m5.xlarge'
+  instance_count: 2
+automl_step:
+  target_column: 'loan_status'
