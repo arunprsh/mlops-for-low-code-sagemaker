@@ -10,7 +10,7 @@ processing_step:
     instance_count: 2
     flow_file_name: 'loans.flow'
     container_uri: '663277389841.dkr.ecr.us-east-1.amazonaws.com/sagemaker-data-wrangler-container:1.31.0'
-    refit: true
+    refit: false
     ebs_volume_size: 50
     output_content_type: 'CSV'
 automl_step:
@@ -30,4 +30,4 @@ evaluation_step:
 register_step:
     model_approval_status: 'Approved'
     model_package_group_name: 'LowCodePipelineModels'
-    model_registration_metric_threshold: 0.75
+    model_registration_metric_threshold: 0.0
