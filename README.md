@@ -1,6 +1,6 @@
 # MLOps for SageMaker Low-code
 
-The workflow (as shown in the figure below) covered in this repository consists of the following steps:
+The workflow (as shown in the figure 1 below) covered in this repository consists of the following steps:
 
 * *Step 1:* Starts with the data processing step using SageMaker Processing. This step uses the data flow file created in the experimental phase using Data Wrangler. It leverages data residing in one of the supported data sources, e.g., S3, Athena etc. 
 * *Step 2:* The transformed output from Data Wrangler is used as an input to kick-off an Autopilot experiment. This step spawns multiple concurrent training jobs behind the scene to create candidate models. It also stack ranks the models and picks the winning model for our problem statement. 
@@ -14,7 +14,7 @@ The workflow (as shown in the figure below) covered in this repository consists 
 ![workflow](./img/workflow-creation.png "Low-code ML Workflow")
 
 
-This repository also encapsulates the source code for SageMaker Projects that map to the CodeCommit repositories created by Projects for modelbuild and modeldeply.
+This repository also encapsulates the source code for SageMaker Projects that map to the CodeCommit repositories created by Projects for modelbuild and modeldeply. The CI/CD setup as shown at a high level in the figure below.
 
 
 ![workflow](./img/enabling-ci-cd.png "CI/CD for Low-code ML Workflow")
